@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
+import sys
+import json	
+import datetime
+
 def main():
-	import sys
-	import json
-	import datetime
-	
 	filename=sys.argv[1]
 	print ("Filename: ", filename)
-	with open(filename+'.txt','w') as w:
+	with open(filename.split('.')[0]+'.txt','w') as w:
 		with open(filename) as f:
 			data=json.loads(f.read())
 			labels = data['results']['speaker_labels']['segments']
